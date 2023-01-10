@@ -456,7 +456,7 @@ t.is(statusCode,200);
 
 //save dashboard named testdash for which we have the id in the d_id variable
 
-test('16) POST /save-dashboard returns correct message when dashboard is saved', async (t) => {
+test('18) POST /save-dashboard returns correct message when dashboard is saved', async (t) => {
 
 const token = jwtSign({username: process.env.USERNAME,id:process.env.USERID,email:process.env.USEREMAIL});
 
@@ -472,7 +472,7 @@ t.is(statusCode,200);
 
 //save a non existing dashboard
 
-test('17) POST /save-dashboard returns correct message when dashboard doesnt exist', async (t) => {
+test('19) POST /save-dashboard returns correct message when dashboard doesnt exist', async (t) => {
 
 const token = jwtSign({username: process.env.USERNAME,id:process.env.USERID,email:process.env.USEREMAIL});
 
