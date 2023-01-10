@@ -35,7 +35,6 @@ const got = require('got');
 
 const listen = require('test-listen');
 
-const FormData = require('form-data')
 
 
 
