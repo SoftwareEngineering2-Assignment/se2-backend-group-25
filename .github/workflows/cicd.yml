@@ -12,6 +12,9 @@ jobs:
       SERVER_URI: http://localhost:3000
       SERVER_EMAIL: karanikio@auth.gr
       SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY}}
+      USERID: ${{ secrets.USERID}}
+      USERNAME: ${{ secrets.USERNAME}}
+      USEREMAIL: ${{ secrets.USEREMAIL}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
