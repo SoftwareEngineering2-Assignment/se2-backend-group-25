@@ -272,7 +272,7 @@ test('20) POST /clone-dashboard returns correct message when dashboard already e
 //for the tests regarding the check-password-needed we will create a second test user or we will use his id if the user already exists
 let seconduser_id;
 test('21) POST /authenticate and /create returns correct message when creating the second test user', async (t) => {
-  const token = jwtSign({username: process.env.SECONDUSER,password: process.env.SECONDUSERPASSWORD,email:process.env.SECONDUSEREMAIL});
+  const token = jwtSign({username: process.env.SECONDUSER,password: process.env.SECONDUSERPASSWORD,email:'test@gmail.com'});
   userexists=false;
   {
     const {body, statusCode} = await t.context.got.post(`users/authenticate?token=${token}`,{json: {username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD}});
