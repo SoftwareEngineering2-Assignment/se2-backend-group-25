@@ -276,7 +276,7 @@ test('21) POST /authenticate and /create returns correct message when creating t
   userexists=false;
   {
     const {body, statusCode} = await t.context.got.post(`users/authenticate`,
-							{json: {username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD, email:'test@gmail.com'}});
+							{json: {email:'test@gmail.com', username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD}});
     t.is(statusCode,200);
 	console.log(body.message);
     if(body.message == 'Authentication Error: User not found.')
