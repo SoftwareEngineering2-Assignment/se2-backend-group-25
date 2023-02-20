@@ -86,7 +86,6 @@ test('6) PUT /test-url-request returns correct response and status code', async 
   const s = t.context.prefixUrl + '/general/statistics';
   const query = {url: s, type: 'PUT', headers: 0, body: 0, params: 0};
   const {body, statusCode} = await t.context.got.get(`general/test-url-request?url=${s}&type=${query.type}&body={}`);
-  console.log(body);
   t.is(statusCode, 200);
   t.is(body.status,500);
 });
@@ -96,7 +95,6 @@ test('7) PATCH /test-url-request returns correct response and status code', asyn
   const s = t.context.prefixUrl + '/general/statistics';
   const query = {url: s, type: 'PATCH', headers: 0, body: 0, params: 0};
   const {body, statusCode} = await t.context.got.get(`general/test-url-request?url=${s}&type=${query.type}`);
-  console.log(body);
   t.is(statusCode, 200);
   t.is(body.status,500);
 });
@@ -112,7 +110,6 @@ test('8) GET /dashboards returns correct statusCode and body', async (t) => {
   const token = jwtSign({username: process.env.USERNAME,id:process.env.USERID,email:process.env.USEREMAIL});
   const {body, statusCode} = await t.context.got(`dashboards/dashboards?token=${token}`);
   t.is(statusCode, 200);
-  console.log(body);
   body.dashboards.forEach((dash)=> {
     if(dash.name == 'testdash')
     {
@@ -297,7 +294,6 @@ test('21) POST /authenticate and /create returns correct message when creating t
     seconduser_id = body.id;
     t.is(statusCode,200);
   }
-  //console.log(seconduser_id);
 });
 
 //test /check-password-needed with a non-valid dash id
@@ -484,7 +480,6 @@ test('34) GET /sources returns correct statusCode and body', async (t) => {
   const token = jwtSign({username: process.env.USERNAME,id:process.env.USERID,email:process.env.USEREMAIL});
   const {body, statusCode} = await t.context.got(`sources/sources?token=${token}`);
   t.is(statusCode, 200);
-  //console.log(body);
   body.sources.forEach((src)=> {
     if(src.name == 'testsrc')
     {
@@ -617,7 +612,6 @@ test('45) POST /change-source returns correct message when source name already e
   source = await Source({name: 'NewSource', owner: process.env.USERID}).save();
   {
     const {body, statusCode} = await t.context.got(`sources/sources?token=${token}`);
-    //console.log(body);
   }
   const {body, statusCode} = await t.context.got.post(`sources/change-source?token=${token}`,{json:
   {
