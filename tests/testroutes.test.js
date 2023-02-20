@@ -275,7 +275,7 @@ test('21) POST /authenticate and /create returns correct message when creating t
   const token = jwtSign({username: process.env.SECONDUSER,password: process.env.SECONDUSERPASSWORD,email:'test@gmail.com'});
   userexists=false;
   {
-    const {body, statusCode} = await t.context.got.post(`users/authenticate?token=${token}`,{json: {username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD}});
+    const {body, statusCode} = await t.context.got.post(`users/authenticate`,{json: {username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD}});
     t.is(statusCode,200);
 	console.log(body.message);
     if(body.message == 'Authentication Error: User not found.')
