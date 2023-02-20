@@ -277,6 +277,7 @@ test('21) POST /authenticate and /create returns correct message when creating t
   {
     const {body, statusCode} = await t.context.got.post(`users/authenticate?token=${token}`,{json: {username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD}});
     t.is(statusCode,200);
+	console.log(body.message);
     if(body.message == 'Authentication Error: User not found.')
       userexists = false;
     else if(body.message == 'Authentication Error: Password does not match!')
