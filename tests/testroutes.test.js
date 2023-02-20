@@ -290,7 +290,7 @@ test('21) POST /authenticate and /create returns correct message when creating t
   if(!userexists)
   {
     const {body, statusCode} = await t.context.got.post(`users/create`,
-	{json: {username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD, email: process.env.SECONDUSEREMAIL}});
+	{json: {username: process.env.SECONDUSER, password: process.env.SECONDUSERPASSWORD, email: 'test@gmail.com'}});
 	console.log(body);
     t.assert(body.success);
     seconduser_id = body.id;
