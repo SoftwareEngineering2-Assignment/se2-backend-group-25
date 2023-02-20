@@ -15,6 +15,9 @@ jobs:
       USERID: ${{ secrets.USERID}}
       USERNAME: ${{ secrets.USERNAME}}
       USEREMAIL: ${{ secrets.USEREMAIL}}
+      SECONDUSER: ${{ secrets.SECONDUSER}}
+      SECONDUSERPASSWORD: ${{ secrets.SECONDUSERPASSWORD}}
+      SECONDUSEREMAIL: ${{ secrets.SECONDUSEREMAIL}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
