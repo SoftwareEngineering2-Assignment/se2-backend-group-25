@@ -16,7 +16,6 @@ const http = require('node:http');
 const test = require('ava').default;
 const got = require('got');
 const listen = require('test-listen');
-const FormData = require('form-data')
 
 const app = require('../src/index');
 const {jwtSign} = require('../src/utilities/authentication/helpers');
