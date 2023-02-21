@@ -1,7 +1,7 @@
 /* eslint-disable no-console */ // Disables no-console warning for this module
 const {pipe, has, ifElse, assoc, identity, allPass, propEq} = require('ramda');
 
-module.exports = (error, req, res, next) => 
+module.exports = (error, res) => 
   /**
    * @name error
    * @description Middleware that handles errors
