@@ -1,6 +1,13 @@
 /* eslint-disable no-console */ // Disables no-console warning for this module
 const {pipe, has, ifElse, assoc, identity, allPass, propEq} = require('ramda');
 
+const withFormatMessageForProduction = ifElse(
+  allPass([propEq('status', 500), () => process.env.NODE_ENV === 'production']), // Checks if the error status is 500 and if the environment is production
+  assoc('message', 'Internal server error occurred.'), // Adds a generic error message for production environment and 500 status code errors
+  identity // Returns the original error object if the conditions aren't met
+);
+
+
 module.exports = (error, req, res, next) => {
   /**
    * @name error
@@ -12,11 +19,5 @@ module.exports = (error, req, res, next) => {
     withFormatMessageForProduction, // Formats message property for production environment and 500 status code errors
     (fError) => res.status(fError.status).json(fError) // Sends the formatted error as a JSON response
   )(error);
-
-const withFormatMessageForProduction = ifElse(
-  allPass([propEq('status', 500), () => process.env.NODE_ENV === 'production']), // Checks if the error status is 500 and if the environment is production
-  assoc('message', 'Internal server error occurred.'), // Adds a generic error message for production environment and 500 status code errors
-  identity // Returns the original error object if the conditions aren't met
-);
   req;next;
 }
