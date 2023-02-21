@@ -1,7 +1,7 @@
 /* eslint-disable no-console */ // Disables no-console warning for this module
 const {pipe, has, ifElse, assoc, identity, allPass, propEq} = require('ramda');
 
-module.exports = (error, res, next) => 
+module.exports = (error, req, res, next) => {
   /**
    * @name error
    * @description Middleware that handles errors
@@ -18,3 +18,5 @@ const withFormatMessageForProduction = ifElse(
   assoc('message', 'Internal server error occurred.'), // Adds a generic error message for production environment and 500 status code errors
   identity // Returns the original error object if the conditions aren't met
 );
+  req;next;
+}
