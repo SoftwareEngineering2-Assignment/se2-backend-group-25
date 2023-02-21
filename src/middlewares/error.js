@@ -1,13 +1,11 @@
 /* eslint-disable no-console */ // Disables no-console warning for this module
 const {pipe, has, ifElse, assoc, identity, allPass, propEq} = require('ramda');
 
-module.exports = (error, req, res, next) => 
+module.exports = (error, res, next) => 
   /**
    * @name error
    * @description Middleware that handles errors
    */
-  req;
-  next;
   pipe(
     (e) => ({...e, message: e.message}), // Extracts message property from the error and adds it to a new object with spread syntax
     ifElse(has('status'), identity, assoc('status', 500)), // Adds 500 status code if the error object doesn't have a status property
