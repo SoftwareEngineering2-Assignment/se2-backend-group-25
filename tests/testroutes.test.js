@@ -799,7 +799,7 @@ test('56) POST /changepassword returns correct response and status code with cor
     {
       email: 'trueuserr@gmail.com',
       username: 'trueuserr',
-      password: 'truepass',
+      password: 'TruePass123',
     }});
   t.is(statusCode, 200);
   console.log(body);
@@ -817,7 +817,7 @@ test('56) POST /changepassword returns correct response and status code with cor
   
     const {body, statusCode} = await t.context.got.post(`users/changepassword?token=${token}`,{json:
       {
-        password: 'newpass'
+        password: 'TruePass12345'
       }});
       console.log(body);
       //t.assert(body.ok);
