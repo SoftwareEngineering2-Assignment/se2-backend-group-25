@@ -146,7 +146,7 @@ router.post('/changepassword',
         // If no reset token is found, return an error response
         return res.json({
           status: 410,
-          message: 'Resource Error: Reset token has expired.'
+          message: ' Resource Error: Reset token has expired.'
         });
       }
       // Update the user's password with the new password
