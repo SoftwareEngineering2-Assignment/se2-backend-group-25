@@ -87,3 +87,8 @@ module.exports = (token) => (`
       </body>
       </html>`
 );
+
+/*
+The baseUrl and logo variables are set using environment variables, and the link function generates a reset link with the provided token.
+The module exports a function that takes in a token and returns an HTML string for the password reset email with the provided token.
+*/
