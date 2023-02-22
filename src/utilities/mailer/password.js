@@ -1,3 +1,7 @@
+/*
+This module exports a function that takes in a token and generates an HTML email template with a password reset button for the Codin Platform.
+*/
+
 const baseUrl = process.env.PLATFORM_URI;
 const logo = `${process.env.SERVER_URI}/logo.png`;
 const link = (token) => `${baseUrl}/reset-password?token=${token}`;
